@@ -1,0 +1,16 @@
+occupation_id,occupation,category,avg_shift_hours,outdoor_exposure_fraction,met_value,exertion_level,recommended_rest_min_per_hr_at_high_heat,water_l_per_hr_at_high_heat
+O01,Construction worker,outdoor_labor,8,0.9,4.5,heavy,20,0.9
+O02,Delivery / logistics rider,outdoor_labor,7,0.95,4.0,moderate,15,0.65
+O03,Agricultural labourer,outdoor_labor,8,1.0,5.0,heavy,20,0.9
+O04,Street vendor,outdoor_labor,10,0.95,2.5,light,10,0.4
+O05,Traffic police,outdoor_service,8,1.0,2.5,light,10,0.4
+O06,Municipal sanitation worker,outdoor_labor,8,0.9,4.0,heavy,20,0.9
+O07,Auto/taxi driver,transport,10,0.5,2.0,light,10,0.4
+O08,Factory worker (hot shop floor),indoor_hot,9,0.1,3.5,moderate,15,0.65
+O09,Office employee,indoor_ac,9,0.05,1.5,sedentary,0,0.25
+O10,Teacher,indoor,7,0.15,2.0,light,10,0.4
+O11,Healthcare worker,indoor,9,0.1,2.8,moderate,15,0.65
+O12,Student,indoor,6,0.25,1.8,light,10,0.4
+O13,Homemaker,indoor,8,0.15,2.3,light,10,0.4
+O14,Retired,indoor,4,0.2,1.5,sedentary,0,0.25
+O15,Sports coach / athlete,outdoor_sport,4,0.8,6.0,heavy,20,0.9

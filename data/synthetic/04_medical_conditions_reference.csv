@@ -1,0 +1,16 @@
+condition_id,condition_name,category,heat_sensitivity,humidity_sensitivity,air_quality_sensitivity,pressure_sensitivity,clinical_verification_priority,typical_prevalence_pct,recommended_medication_review
+C01,Hypertension,cardiovascular,0.55,0.45,0.2,0.25,moderate,28.0,yes
+C02,Coronary artery disease,cardiovascular,0.85,0.55,0.5,0.4,high,5.0,yes
+C03,Heart failure,cardiovascular,0.95,0.7,0.45,0.45,high,1.5,yes
+C04,Asthma,respiratory,0.35,0.5,0.9,0.35,moderate,4.0,no
+C05,COPD,respiratory,0.6,0.65,0.95,0.4,high,3.0,no
+C06,Chronic kidney disease,renal,0.85,0.6,0.3,0.2,high,7.0,yes
+C07,Type 2 diabetes,metabolic,0.6,0.4,0.25,0.15,moderate,11.0,yes
+C08,Obesity,metabolic,0.6,0.5,0.3,0.1,low,20.0,no
+C09,Hypothyroidism / thermoregulation disorder,endocrine,0.5,0.3,0.1,0.1,moderate,4.0,no
+C10,Allergic rhinitis,allergy,0.1,0.2,0.6,0.15,low,18.0,no
+C11,Migraine,neurological,0.45,0.35,0.3,0.75,low,12.0,no
+C12,Epilepsy,neurological,0.45,0.3,0.2,0.2,moderate,1.0,no
+C13,Anhidrosis / impaired sweating,thermoregulation,1.0,0.8,0.05,0.05,high,0.1,no
+C14,Arthritis,musculoskeletal,0.1,0.25,0.05,0.6,low,15.0,no
+C15,Pregnancy,physiological,0.6,0.5,0.3,0.2,moderate,1.0,no

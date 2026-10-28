@@ -1,0 +1,8 @@
+hazard,topic,tip
+heat,Hydration,Drink 250 ml water every 20 minutes during exertion
+heat,Rest,Take shaded breaks every hour at heat index above 39°C
+heat,Clothing,"Wear light, loose, light-coloured clothing"
+rain,Commute,Avoid underpasses during heavy rain
+air_quality,Mask,Use N95 mask when AQI above 300
+uv,Sun,Use SPF 30+ sunscreen and hat
+heat,Warning signs,"Seek help for confusion, no sweating, hot dry skin, fainting"

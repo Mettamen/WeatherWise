@@ -1,0 +1,11 @@
+location_id,city,state,latitude,longitude,elevation_m,climate_zone
+LOC01,Chennai,Tamil Nadu,13.08,80.27,6,tropical_coastal
+LOC02,Coimbatore,Tamil Nadu,11.0,76.96,411,tropical_savanna
+LOC03,Madurai,Tamil Nadu,9.93,78.12,101,semi_arid
+LOC04,Tiruchirappalli,Tamil Nadu,10.79,78.7,88,semi_arid
+LOC05,Salem,Tamil Nadu,11.66,78.15,278,tropical_savanna
+LOC06,Tirunelveli,Tamil Nadu,8.73,77.7,47,semi_arid
+LOC07,Vellore,Tamil Nadu,12.92,79.13,220,semi_arid
+LOC08,Erode,Tamil Nadu,11.34,77.72,183,semi_arid
+LOC09,Thoothukudi,Tamil Nadu,8.76,78.13,3,tropical_coastal
+LOC10,Thanjavur,Tamil Nadu,10.79,79.14,57,tropical_savanna

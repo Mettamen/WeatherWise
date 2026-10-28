@@ -1,0 +1,22 @@
+hazard,level,lower_bound,upper_bound,general_guidance
+HEAT,Low,0.0,32.0,Normal precautions
+HEAT,Caution,32.0,39.0,Fatigue possible with prolonged exposure; hydrate
+HEAT,Extreme Caution,39.0,46.0,Heat cramps/exhaustion possible; limit exertion
+HEAT,Danger,46.0,54.0,Heat stroke likely with prolonged exposure; avoid outdoor work
+HEAT,Extreme Danger,54.0,99.0,Heat stroke imminent; stay indoors
+RAIN,None,0.0,0.1,No action
+RAIN,Light,0.1,2.5,Carry rain gear
+RAIN,Moderate,2.5,7.6,Slippery roads; allow extra commute time
+RAIN,Heavy,7.6,20.0,Avoid outdoor work/travel; waterlogging risk
+RAIN,Very Heavy,20.0,999.0,Stay indoors; flooding risk
+AQI,Good,0.0,50.0,None
+AQI,Satisfactory,51.0,100.0,Sensitive groups limit prolonged exertion
+AQI,Moderate,101.0,200.0,Respiratory patients reduce outdoor activity
+AQI,Poor,201.0,300.0,Avoid outdoor exercise
+AQI,Very Poor,301.0,400.0,Mask recommended; stay indoors
+AQI,Severe,401.0,500.0,Health emergency conditions
+UV,Low,0.0,2.9,None
+UV,Moderate,3.0,5.9,Sunscreen
+UV,High,6.0,7.9,"Cover up, seek shade 11-3"
+UV,Very High,8.0,10.9,Avoid midday sun
+UV,Extreme,11.0,20.0,Stay indoors midday

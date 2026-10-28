@@ -1,0 +1,16 @@
+rule_id,condition_expression,risk_level,recommendation_text,action_type
+R01,heat_index_c>=54 OR (heat_index_c>=46 AND heat_sensitivity_index>=0.7),Severe,Stay indoors; cancel all outdoor activity; cool environment; call emergency if symptoms,suppress_activity
+R02,heat_index_c 46-54 AND outdoor_minutes>30,High,Reschedule outdoor tasks before 10:00 or after 17:00; rest 15-20 min/hr,reschedule
+R03,"heat_index_c 39-46 AND exertion_level in (heavy,moderate)",High,Hydrate 0.65-0.9 L/hr; mandatory rest intervals; shaded breaks,rest_hydrate
+R04,heat_index_c 32-39 AND age>=65,Moderate,Hydrate; avoid 12:00-16:00 sun,hydrate
+R05,condition in (C06 CKD) AND heat_index_c>=39,High,Fluid targets per physician; avoid dehydration; contact clinician,clinical_referral
+R06,on_diuretic_or_bp_medication=yes AND heat_index_c>=39,High,Risk of dehydration/hypotension; monitor BP; consult doctor,medication_warning
+R07,aqi>=201 AND air_quality_sensitivity_index>=0.5,High,Avoid outdoor exercise; carry inhaler; mask,suppress_activity
+R08,"aqi 101-200 AND condition in (C04,C05)",Moderate,Limit exertion outdoors; keep rescue inhaler,caution
+R09,"rainfall_mm_hr>=7.6 AND travel_mode in (two_wheeler,bicycle,walk)",High,Reroute / delay commute; waterlogging risk,reroute
+R10,rainfall_mm_hr>=20,Severe,Stay indoors; avoid travel,suppress_activity
+R11,uv_index>=8 AND outdoor_minutes>30,Moderate,Avoid midday sun; sunscreen SPF30+,caution
+R12,pressure drop>=6 hPa/6h AND pressure_sensitivity_index>=0.5,Moderate,Migraine/arthritis flare possible; plan rest,caution
+R13,C13 anhidrosis AND temperature_c>=32,Severe,No outdoor exposure; active cooling,suppress_activity
+R14,C15 pregnancy AND heat_index_c>=39,High,Limit outdoor time; hydrate; rest in shade/AC,rest_hydrate
+R15,"pollen_index>=100 AND condition in (C10,C04)",Moderate,Take preventive antihistamine as prescribed; limit outdoor time,caution
