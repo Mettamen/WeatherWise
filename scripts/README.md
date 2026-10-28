@@ -1,3 +1,11 @@
+# Current implementation status
+
+setup.ps1, run.ps1, frontend.ps1, check.ps1 and export_contracts.py are now implemented. Follow the root README for commands.
+
+The original planning guide below remains for future team work. References below to empty files describe the initial scaffold.
+
+---
+
 # Development scripts — Sam
 
 These files are empty placeholders; none can start or configure the app yet.

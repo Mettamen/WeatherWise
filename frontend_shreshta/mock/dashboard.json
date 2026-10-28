@@ -1,0 +1,827 @@
+{
+  "schema_version": "1.1",
+  "mode": "synthetic_demo",
+  "source": "Supplied synthetic Tamil Nadu dataset; not a live weather feed",
+  "timezone": "Asia/Kolkata",
+  "date": "2026-05-08",
+  "location": {
+    "location_id": "LOC01",
+    "city": "Chennai",
+    "state": "Tamil Nadu",
+    "latitude": 13.08,
+    "longitude": 80.27
+  },
+  "profile": {
+    "display_name": "Alex",
+    "age": 35,
+    "home_location_id": "LOC01",
+    "occupation_id": "O08",
+    "condition_ids": [],
+    "infectious_condition_ids": [],
+    "allergy_ids": [],
+    "other_allergy": "",
+    "baseline": "standard",
+    "available_from": 6,
+    "available_until": 20,
+    "activity_duration_hours": 1
+  },
+  "focus_hour": {
+    "weather": {
+      "timestamp": "2026-05-08T12:00:00+05:30",
+      "temperature_c": 36.6,
+      "relative_humidity_pct": 61.0,
+      "heat_index_c": 50.8,
+      "rainfall_mm_hr": 0.0,
+      "aqi": 103,
+      "uv_index": 10.3,
+      "wind_kmh": 3.9,
+      "pm2_5_ugm3": 49.8,
+      "weather_code": null,
+      "cloud_cover": null,
+      "is_day": true,
+      "apparent_temperature_c": null
+    },
+    "risk": {
+      "score": 67.8,
+      "level": "High",
+      "dominant_hazard": "heat",
+      "reasons": [
+        "Heat index is 50.8°C; the demo heat threshold is 30°C.",
+        "Synthetic AQI is 103; the demo threshold is 100.",
+        "UV index is 10.3."
+      ],
+      "advice": [
+        "Consider cooler hours and shaded breaks for outdoor activities.",
+        "Consider reducing outdoor exposure when local air-quality advisories recommend it.",
+        "Plan shade and sun protection for outdoor time."
+      ]
+    }
+  },
+  "daily_risk": {
+    "score": 68.4,
+    "level": "High",
+    "dominant_hazard": "heat",
+    "reasons": [
+      "Heat index is 51.0°C; the demo heat threshold is 30°C.",
+      "UV index is 10.5."
+    ],
+    "advice": [
+      "Consider cooler hours and shaded breaks for outdoor activities.",
+      "Plan shade and sun protection for outdoor time."
+    ]
+  },
+  "hours": [
+    {
+      "weather": {
+        "timestamp": "2026-05-08T00:00:00+05:30",
+        "temperature_c": 29.9,
+        "relative_humidity_pct": 73.0,
+        "heat_index_c": 35.5,
+        "rainfall_mm_hr": 0.0,
+        "aqi": 88,
+        "uv_index": 0.0,
+        "wind_kmh": 3.8,
+        "pm2_5_ugm3": 41.8,
+        "weather_code": null,
+        "cloud_cover": null,
+        "is_day": true,
+        "apparent_temperature_c": null
+      },
+      "risk": {
+        "score": 16.8,
+        "level": "Low",
+        "dominant_hazard": "heat",
+        "reasons": [
+          "Heat index is 35.5°C; the demo heat threshold is 30°C."
+        ],
+        "advice": [
+          "Consider cooler hours and shaded breaks for outdoor activities."
+        ]
+      }
+    },
+    {
+      "weather": {
+        "timestamp": "2026-05-08T01:00:00+05:30",
+        "temperature_c": 29.8,
+        "relative_humidity_pct": 71.0,
+        "heat_index_c": 35.0,
+        "rainfall_mm_hr": 0.0,
+        "aqi": 89,
+        "uv_index": 0.0,
+        "wind_kmh": 7.0,
+        "pm2_5_ugm3": 32.6,
+        "weather_code": null,
+        "cloud_cover": null,
+        "is_day": true,
+        "apparent_temperature_c": null
+      },
+      "risk": {
+        "score": 15.3,
+        "level": "Low",
+        "dominant_hazard": "heat",
+        "reasons": [
+          "Heat index is 35.0°C; the demo heat threshold is 30°C."
+        ],
+        "advice": [
+          "Consider cooler hours and shaded breaks for outdoor activities."
+        ]
+      }
+    },
+    {
+      "weather": {
+        "timestamp": "2026-05-08T02:00:00+05:30",
+        "temperature_c": 29.0,
+        "relative_humidity_pct": 78.0,
+        "heat_index_c": 34.4,
+        "rainfall_mm_hr": 0.0,
+        "aqi": 113,
+        "uv_index": 0.0,
+        "wind_kmh": 5.4,
+        "pm2_5_ugm3": 48.3,
+        "weather_code": null,
+        "cloud_cover": null,
+        "is_day": true,
+        "apparent_temperature_c": null
+      },
+      "risk": {
+        "score": 14.1,
+        "level": "Low",
+        "dominant_hazard": "heat",
+        "reasons": [
+          "Heat index is 34.4°C; the demo heat threshold is 30°C.",
+          "Synthetic AQI is 113; the demo threshold is 100."
+        ],
+        "advice": [
+          "Consider cooler hours and shaded breaks for outdoor activities.",
+          "Consider reducing outdoor exposure when local air-quality advisories recommend it."
+        ]
+      }
+    },
+    {
+      "weather": {
+        "timestamp": "2026-05-08T03:00:00+05:30",
+        "temperature_c": 29.4,
+        "relative_humidity_pct": 72.0,
+        "heat_index_c": 34.0,
+        "rainfall_mm_hr": 0.0,
+        "aqi": 91,
+        "uv_index": 0.0,
+        "wind_kmh": 5.9,
+        "pm2_5_ugm3": 36.7,
+        "weather_code": null,
+        "cloud_cover": null,
+        "is_day": true,
+        "apparent_temperature_c": null
+      },
+      "risk": {
+        "score": 12.2,
+        "level": "Low",
+        "dominant_hazard": "heat",
+        "reasons": [
+          "Heat index is 34.0°C; the demo heat threshold is 30°C."
+        ],
+        "advice": [
+          "Consider cooler hours and shaded breaks for outdoor activities."
+        ]
+      }
+    },
+    {
+      "weather": {
+        "timestamp": "2026-05-08T04:00:00+05:30",
+        "temperature_c": 28.9,
+        "relative_humidity_pct": 77.0,
+        "heat_index_c": 33.7,
+        "rainfall_mm_hr": 0.0,
+        "aqi": 86,
+        "uv_index": 0.0,
+        "wind_kmh": 7.0,
+        "pm2_5_ugm3": 31.0,
+        "weather_code": null,
+        "cloud_cover": null,
+        "is_day": true,
+        "apparent_temperature_c": null
+      },
+      "risk": {
+        "score": 11.3,
+        "level": "Low",
+        "dominant_hazard": "heat",
+        "reasons": [
+          "Heat index is 33.7°C; the demo heat threshold is 30°C."
+        ],
+        "advice": [
+          "Consider cooler hours and shaded breaks for outdoor activities."
+        ]
+      }
+    },
+    {
+      "weather": {
+        "timestamp": "2026-05-08T05:00:00+05:30",
+        "temperature_c": 28.7,
+        "relative_humidity_pct": 80.0,
+        "heat_index_c": 33.9,
+        "rainfall_mm_hr": 0.0,
+        "aqi": 124,
+        "uv_index": 0.0,
+        "wind_kmh": 6.0,
+        "pm2_5_ugm3": 56.4,
+        "weather_code": null,
+        "cloud_cover": null,
+        "is_day": true,
+        "apparent_temperature_c": null
+      },
+      "risk": {
+        "score": 13.2,
+        "level": "Low",
+        "dominant_hazard": "heat",
+        "reasons": [
+          "Heat index is 33.9°C; the demo heat threshold is 30°C.",
+          "Synthetic AQI is 124; the demo threshold is 100."
+        ],
+        "advice": [
+          "Consider cooler hours and shaded breaks for outdoor activities.",
+          "Consider reducing outdoor exposure when local air-quality advisories recommend it."
+        ]
+      }
+    },
+    {
+      "weather": {
+        "timestamp": "2026-05-08T06:00:00+05:30",
+        "temperature_c": 29.4,
+        "relative_humidity_pct": 71.0,
+        "heat_index_c": 33.8,
+        "rainfall_mm_hr": 0.0,
+        "aqi": 128,
+        "uv_index": 0.0,
+        "wind_kmh": 4.9,
+        "pm2_5_ugm3": 48.8,
+        "weather_code": null,
+        "cloud_cover": null,
+        "is_day": true,
+        "apparent_temperature_c": null
+      },
+      "risk": {
+        "score": 13.1,
+        "level": "Low",
+        "dominant_hazard": "heat",
+        "reasons": [
+          "Heat index is 33.8°C; the demo heat threshold is 30°C.",
+          "Synthetic AQI is 128; the demo threshold is 100."
+        ],
+        "advice": [
+          "Consider cooler hours and shaded breaks for outdoor activities.",
+          "Consider reducing outdoor exposure when local air-quality advisories recommend it."
+        ]
+      }
+    },
+    {
+      "weather": {
+        "timestamp": "2026-05-08T07:00:00+05:30",
+        "temperature_c": 31.9,
+        "relative_humidity_pct": 63.0,
+        "heat_index_c": 37.9,
+        "rainfall_mm_hr": 0.0,
+        "aqi": 129,
+        "uv_index": 3.0,
+        "wind_kmh": 2.8,
+        "pm2_5_ugm3": 52.6,
+        "weather_code": null,
+        "cloud_cover": null,
+        "is_day": true,
+        "apparent_temperature_c": null
+      },
+      "risk": {
+        "score": 25.7,
+        "level": "Moderate",
+        "dominant_hazard": "heat",
+        "reasons": [
+          "Heat index is 37.9°C; the demo heat threshold is 30°C.",
+          "Synthetic AQI is 129; the demo threshold is 100."
+        ],
+        "advice": [
+          "Consider cooler hours and shaded breaks for outdoor activities.",
+          "Consider reducing outdoor exposure when local air-quality advisories recommend it."
+        ]
+      }
+    },
+    {
+      "weather": {
+        "timestamp": "2026-05-08T08:00:00+05:30",
+        "temperature_c": 33.2,
+        "relative_humidity_pct": 56.0,
+        "heat_index_c": 38.7,
+        "rainfall_mm_hr": 0.0,
+        "aqi": 128,
+        "uv_index": 5.2,
+        "wind_kmh": 4.8,
+        "pm2_5_ugm3": 55.6,
+        "weather_code": null,
+        "cloud_cover": null,
+        "is_day": true,
+        "apparent_temperature_c": null
+      },
+      "risk": {
+        "score": 28.2,
+        "level": "Moderate",
+        "dominant_hazard": "heat",
+        "reasons": [
+          "Heat index is 38.7°C; the demo heat threshold is 30°C.",
+          "Synthetic AQI is 128; the demo threshold is 100.",
+          "UV index is 5.2."
+        ],
+        "advice": [
+          "Consider cooler hours and shaded breaks for outdoor activities.",
+          "Consider reducing outdoor exposure when local air-quality advisories recommend it.",
+          "Plan shade and sun protection for outdoor time."
+        ]
+      }
+    },
+    {
+      "weather": {
+        "timestamp": "2026-05-08T09:00:00+05:30",
+        "temperature_c": 33.5,
+        "relative_humidity_pct": 56.0,
+        "heat_index_c": 39.4,
+        "rainfall_mm_hr": 0.0,
+        "aqi": 117,
+        "uv_index": 8.0,
+        "wind_kmh": 2.5,
+        "pm2_5_ugm3": 49.1,
+        "weather_code": null,
+        "cloud_cover": null,
+        "is_day": true,
+        "apparent_temperature_c": null
+      },
+      "risk": {
+        "score": 31.9,
+        "level": "Moderate",
+        "dominant_hazard": "heat",
+        "reasons": [
+          "Heat index is 39.4°C; the demo heat threshold is 30°C.",
+          "Synthetic AQI is 117; the demo threshold is 100.",
+          "UV index is 8.0."
+        ],
+        "advice": [
+          "Consider cooler hours and shaded breaks for outdoor activities.",
+          "Consider reducing outdoor exposure when local air-quality advisories recommend it.",
+          "Plan shade and sun protection for outdoor time."
+        ]
+      }
+    },
+    {
+      "weather": {
+        "timestamp": "2026-05-08T10:00:00+05:30",
+        "temperature_c": 34.7,
+        "relative_humidity_pct": 49.0,
+        "heat_index_c": 39.5,
+        "rainfall_mm_hr": 0.0,
+        "aqi": 131,
+        "uv_index": 9.6,
+        "wind_kmh": 4.0,
+        "pm2_5_ugm3": 60.4,
+        "weather_code": null,
+        "cloud_cover": null,
+        "is_day": true,
+        "apparent_temperature_c": null
+      },
+      "risk": {
+        "score": 34.1,
+        "level": "Moderate",
+        "dominant_hazard": "heat",
+        "reasons": [
+          "Heat index is 39.5°C; the demo heat threshold is 30°C.",
+          "Synthetic AQI is 131; the demo threshold is 100.",
+          "UV index is 9.6."
+        ],
+        "advice": [
+          "Consider cooler hours and shaded breaks for outdoor activities.",
+          "Consider reducing outdoor exposure when local air-quality advisories recommend it.",
+          "Plan shade and sun protection for outdoor time."
+        ]
+      }
+    },
+    {
+      "weather": {
+        "timestamp": "2026-05-08T11:00:00+05:30",
+        "temperature_c": 36.9,
+        "relative_humidity_pct": 55.0,
+        "heat_index_c": 48.1,
+        "rainfall_mm_hr": 0.0,
+        "aqi": 114,
+        "uv_index": 9.2,
+        "wind_kmh": 3.7,
+        "pm2_5_ugm3": 52.7,
+        "weather_code": null,
+        "cloud_cover": null,
+        "is_day": true,
+        "apparent_temperature_c": null
+      },
+      "risk": {
+        "score": 59.3,
+        "level": "High",
+        "dominant_hazard": "heat",
+        "reasons": [
+          "Heat index is 48.1°C; the demo heat threshold is 30°C.",
+          "Synthetic AQI is 114; the demo threshold is 100.",
+          "UV index is 9.2."
+        ],
+        "advice": [
+          "Consider cooler hours and shaded breaks for outdoor activities.",
+          "Consider reducing outdoor exposure when local air-quality advisories recommend it.",
+          "Plan shade and sun protection for outdoor time."
+        ]
+      }
+    },
+    {
+      "weather": {
+        "timestamp": "2026-05-08T12:00:00+05:30",
+        "temperature_c": 36.6,
+        "relative_humidity_pct": 61.0,
+        "heat_index_c": 50.8,
+        "rainfall_mm_hr": 0.0,
+        "aqi": 103,
+        "uv_index": 10.3,
+        "wind_kmh": 3.9,
+        "pm2_5_ugm3": 49.8,
+        "weather_code": null,
+        "cloud_cover": null,
+        "is_day": true,
+        "apparent_temperature_c": null
+      },
+      "risk": {
+        "score": 67.8,
+        "level": "High",
+        "dominant_hazard": "heat",
+        "reasons": [
+          "Heat index is 50.8°C; the demo heat threshold is 30°C.",
+          "Synthetic AQI is 103; the demo threshold is 100.",
+          "UV index is 10.3."
+        ],
+        "advice": [
+          "Consider cooler hours and shaded breaks for outdoor activities.",
+          "Consider reducing outdoor exposure when local air-quality advisories recommend it.",
+          "Plan shade and sun protection for outdoor time."
+        ]
+      }
+    },
+    {
+      "weather": {
+        "timestamp": "2026-05-08T13:00:00+05:30",
+        "temperature_c": 37.5,
+        "relative_humidity_pct": 57.0,
+        "heat_index_c": 51.0,
+        "rainfall_mm_hr": 0.0,
+        "aqi": 99,
+        "uv_index": 10.5,
+        "wind_kmh": 1.8,
+        "pm2_5_ugm3": 47.7,
+        "weather_code": null,
+        "cloud_cover": null,
+        "is_day": true,
+        "apparent_temperature_c": null
+      },
+      "risk": {
+        "score": 68.4,
+        "level": "High",
+        "dominant_hazard": "heat",
+        "reasons": [
+          "Heat index is 51.0°C; the demo heat threshold is 30°C.",
+          "UV index is 10.5."
+        ],
+        "advice": [
+          "Consider cooler hours and shaded breaks for outdoor activities.",
+          "Plan shade and sun protection for outdoor time."
+        ]
+      }
+    },
+    {
+      "weather": {
+        "timestamp": "2026-05-08T14:00:00+05:30",
+        "temperature_c": 38.8,
+        "relative_humidity_pct": 38.0,
+        "heat_index_c": 44.0,
+        "rainfall_mm_hr": 0.0,
+        "aqi": 128,
+        "uv_index": 10.0,
+        "wind_kmh": 0.4,
+        "pm2_5_ugm3": 62.2,
+        "weather_code": null,
+        "cloud_cover": null,
+        "is_day": true,
+        "apparent_temperature_c": null
+      },
+      "risk": {
+        "score": 48.1,
+        "level": "Moderate",
+        "dominant_hazard": "heat",
+        "reasons": [
+          "Heat index is 44.0°C; the demo heat threshold is 30°C.",
+          "Synthetic AQI is 128; the demo threshold is 100.",
+          "UV index is 10.0."
+        ],
+        "advice": [
+          "Consider cooler hours and shaded breaks for outdoor activities.",
+          "Consider reducing outdoor exposure when local air-quality advisories recommend it.",
+          "Plan shade and sun protection for outdoor time."
+        ]
+      }
+    },
+    {
+      "weather": {
+        "timestamp": "2026-05-08T15:00:00+05:30",
+        "temperature_c": 38.4,
+        "relative_humidity_pct": 50.0,
+        "heat_index_c": 50.1,
+        "rainfall_mm_hr": 0.0,
+        "aqi": 65,
+        "uv_index": 7.3,
+        "wind_kmh": 3.3,
+        "pm2_5_ugm3": 29.4,
+        "weather_code": null,
+        "cloud_cover": null,
+        "is_day": true,
+        "apparent_temperature_c": null
+      },
+      "risk": {
+        "score": 63.2,
+        "level": "High",
+        "dominant_hazard": "heat",
+        "reasons": [
+          "Heat index is 50.1°C; the demo heat threshold is 30°C.",
+          "UV index is 7.3."
+        ],
+        "advice": [
+          "Consider cooler hours and shaded breaks for outdoor activities.",
+          "Plan shade and sun protection for outdoor time."
+        ]
+      }
+    },
+    {
+      "weather": {
+        "timestamp": "2026-05-08T16:00:00+05:30",
+        "temperature_c": 38.4,
+        "relative_humidity_pct": 54.0,
+        "heat_index_c": 52.3,
+        "rainfall_mm_hr": 0.0,
+        "aqi": 93,
+        "uv_index": 4.8,
+        "wind_kmh": 7.9,
+        "pm2_5_ugm3": 43.1,
+        "weather_code": null,
+        "cloud_cover": null,
+        "is_day": true,
+        "apparent_temperature_c": null
+      },
+      "risk": {
+        "score": 68.2,
+        "level": "High",
+        "dominant_hazard": "heat",
+        "reasons": [
+          "Heat index is 52.3°C; the demo heat threshold is 30°C."
+        ],
+        "advice": [
+          "Consider cooler hours and shaded breaks for outdoor activities."
+        ]
+      }
+    },
+    {
+      "weather": {
+        "timestamp": "2026-05-08T17:00:00+05:30",
+        "temperature_c": 37.9,
+        "relative_humidity_pct": 46.0,
+        "heat_index_c": 46.1,
+        "rainfall_mm_hr": 0.0,
+        "aqi": 55,
+        "uv_index": 2.7,
+        "wind_kmh": 4.5,
+        "pm2_5_ugm3": 26.9,
+        "weather_code": null,
+        "cloud_cover": null,
+        "is_day": true,
+        "apparent_temperature_c": null
+      },
+      "risk": {
+        "score": 49.3,
+        "level": "Moderate",
+        "dominant_hazard": "heat",
+        "reasons": [
+          "Heat index is 46.1°C; the demo heat threshold is 30°C."
+        ],
+        "advice": [
+          "Consider cooler hours and shaded breaks for outdoor activities."
+        ]
+      }
+    },
+    {
+      "weather": {
+        "timestamp": "2026-05-08T18:00:00+05:30",
+        "temperature_c": 37.3,
+        "relative_humidity_pct": 51.0,
+        "heat_index_c": 47.0,
+        "rainfall_mm_hr": 0.0,
+        "aqi": 75,
+        "uv_index": 0.0,
+        "wind_kmh": 7.5,
+        "pm2_5_ugm3": 34.3,
+        "weather_code": null,
+        "cloud_cover": null,
+        "is_day": true,
+        "apparent_temperature_c": null
+      },
+      "risk": {
+        "score": 52.0,
+        "level": "High",
+        "dominant_hazard": "heat",
+        "reasons": [
+          "Heat index is 47.0°C; the demo heat threshold is 30°C."
+        ],
+        "advice": [
+          "Consider cooler hours and shaded breaks for outdoor activities."
+        ]
+      }
+    },
+    {
+      "weather": {
+        "timestamp": "2026-05-08T19:00:00+05:30",
+        "temperature_c": 36.8,
+        "relative_humidity_pct": 41.0,
+        "heat_index_c": 41.4,
+        "rainfall_mm_hr": 0.0,
+        "aqi": 68,
+        "uv_index": 0.0,
+        "wind_kmh": 2.5,
+        "pm2_5_ugm3": 28.8,
+        "weather_code": null,
+        "cloud_cover": null,
+        "is_day": true,
+        "apparent_temperature_c": null
+      },
+      "risk": {
+        "score": 34.9,
+        "level": "Moderate",
+        "dominant_hazard": "heat",
+        "reasons": [
+          "Heat index is 41.4°C; the demo heat threshold is 30°C."
+        ],
+        "advice": [
+          "Consider cooler hours and shaded breaks for outdoor activities."
+        ]
+      }
+    },
+    {
+      "weather": {
+        "timestamp": "2026-05-08T20:00:00+05:30",
+        "temperature_c": 35.0,
+        "relative_humidity_pct": 58.0,
+        "heat_index_c": 44.2,
+        "rainfall_mm_hr": 0.0,
+        "aqi": 42,
+        "uv_index": 0.0,
+        "wind_kmh": 3.2,
+        "pm2_5_ugm3": 17.6,
+        "weather_code": null,
+        "cloud_cover": null,
+        "is_day": true,
+        "apparent_temperature_c": null
+      },
+      "risk": {
+        "score": 43.5,
+        "level": "Moderate",
+        "dominant_hazard": "heat",
+        "reasons": [
+          "Heat index is 44.2°C; the demo heat threshold is 30°C."
+        ],
+        "advice": [
+          "Consider cooler hours and shaded breaks for outdoor activities."
+        ]
+      }
+    },
+    {
+      "weather": {
+        "timestamp": "2026-05-08T21:00:00+05:30",
+        "temperature_c": 33.9,
+        "relative_humidity_pct": 55.0,
+        "heat_index_c": 40.0,
+        "rainfall_mm_hr": 0.0,
+        "aqi": 80,
+        "uv_index": 0.0,
+        "wind_kmh": 13.4,
+        "pm2_5_ugm3": 32.7,
+        "weather_code": null,
+        "cloud_cover": null,
+        "is_day": true,
+        "apparent_temperature_c": null
+      },
+      "risk": {
+        "score": 30.6,
+        "level": "Moderate",
+        "dominant_hazard": "heat",
+        "reasons": [
+          "Heat index is 40.0°C; the demo heat threshold is 30°C."
+        ],
+        "advice": [
+          "Consider cooler hours and shaded breaks for outdoor activities."
+        ]
+      }
+    },
+    {
+      "weather": {
+        "timestamp": "2026-05-08T22:00:00+05:30",
+        "temperature_c": 31.3,
+        "relative_humidity_pct": 69.0,
+        "heat_index_c": 38.1,
+        "rainfall_mm_hr": 0.0,
+        "aqi": 71,
+        "uv_index": 0.0,
+        "wind_kmh": 2.6,
+        "pm2_5_ugm3": 33.6,
+        "weather_code": null,
+        "cloud_cover": null,
+        "is_day": true,
+        "apparent_temperature_c": null
+      },
+      "risk": {
+        "score": 24.8,
+        "level": "Low",
+        "dominant_hazard": "heat",
+        "reasons": [
+          "Heat index is 38.1°C; the demo heat threshold is 30°C."
+        ],
+        "advice": [
+          "Consider cooler hours and shaded breaks for outdoor activities."
+        ]
+      }
+    },
+    {
+      "weather": {
+        "timestamp": "2026-05-08T23:00:00+05:30",
+        "temperature_c": 31.1,
+        "relative_humidity_pct": 61.0,
+        "heat_index_c": 35.3,
+        "rainfall_mm_hr": 0.0,
+        "aqi": 49,
+        "uv_index": 0.0,
+        "wind_kmh": 5.9,
+        "pm2_5_ugm3": 21.7,
+        "weather_code": null,
+        "cloud_cover": null,
+        "is_day": true,
+        "apparent_temperature_c": null
+      },
+      "risk": {
+        "score": 16.2,
+        "level": "Low",
+        "dominant_hazard": "heat",
+        "reasons": [
+          "Heat index is 35.3°C; the demo heat threshold is 30°C."
+        ],
+        "advice": [
+          "Consider cooler hours and shaded breaks for outdoor activities."
+        ]
+      }
+    }
+  ],
+  "best_windows": [
+    {
+      "start": "2026-05-08T06:00:00+05:30",
+      "end": "2026-05-08T07:00:00+05:30",
+      "average_score": 13.1,
+      "level": "Low",
+      "explanation": "Lowest available 1-hour average scores within your chosen hours. This is a relative ranking, not a safe-time guarantee."
+    },
+    {
+      "start": "2026-05-08T07:00:00+05:30",
+      "end": "2026-05-08T08:00:00+05:30",
+      "average_score": 25.7,
+      "level": "Moderate",
+      "explanation": "Lowest available 1-hour average scores within your chosen hours. This is a relative ranking, not a safe-time guarantee."
+    },
+    {
+      "start": "2026-05-08T08:00:00+05:30",
+      "end": "2026-05-08T09:00:00+05:30",
+      "average_score": 28.2,
+      "level": "Moderate",
+      "explanation": "Lowest available 1-hour average scores within your chosen hours. This is a relative ranking, not a safe-time guarantee."
+    }
+  ],
+  "alerts": [
+    {
+      "id": "81eca625d5e4aada",
+      "title": "High heat risk",
+      "message": "Consider cooler hours and shaded breaks for outdoor activities.",
+      "severity": "High",
+      "window_start": "2026-05-08T07:00:00+05:30",
+      "window_end": "2026-05-08T22:00:00+05:30"
+    }
+  ],
+  "limitations": [
+    "Synthetic weather and illustrative rules. No clinical or real-world prediction claims.",
+    "Daily risk is the peak hourly score. The weather card shows 12:00 local time.",
+    "Communicable-disease risk, road-level routing and real notifications are not implemented."
+  ],
+  "fetched_at": null,
+  "valid_at": null,
+  "sources": [],
+  "comparison": {},
+  "scene": "sunny",
+  "location_note": ""
+}

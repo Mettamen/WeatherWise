@@ -1,61 +1,53 @@
-# WeatherWise — team file scaffold
+# WeatherWise
 
-**This is a file structure and task guide only. All application code and configuration placeholders are empty; `.gitignore` contains repository exclusions. Your team will do the coding. There is no runnable webpage or backend yet.**
+A responsive local web prototype built around the supplied synthetic Tamil Nadu dataset.
 
-## Team allocation
+## Run
 
-| Person | Role | Main folder | Start guide |
-| --- | --- | --- | --- |
-| Sam | Backend 1 (BE1) | `backend/be1_sam/` | [Sam's README](backend/be1_sam/README.md) |
-| Metta | Backend 2 (BE2) | `backend/be2_metta/` | [Metta's README](backend/be2_metta/README.md) |
-| Shreshta | Frontend | `frontend_shreshta/` | [Shreshta's README](frontend_shreshta/README.md) |
+Python 3.11 or newer is required (tested with 3.12).
 
-Every folder contains a README explaining its owner and the purpose of each file.
-
-## Folder layout
-
-```text
-WeatherWise/
-  backend/
-    be1_sam/             API, authentication, database, profiles and weather
-    be2_metta/           Risk rules, recommendations, scheduling and ML
-  frontend_shreshta/
-    index.html           Webpage structure
-    styles/              CSS files
-    js/                  Browser logic and API adapter
-    assets/              Your images/icons/fonts
-    mock/                Example responses for independent frontend work
-  shared/                Agreed contracts and API specification
-  data/
-    synthetic/           Original supplied CSVs, unchanged
-  scripts/               Empty setup/run/check script placeholders
-  tests/
-    be1_sam/             Sam's tests
-    be2_metta/           Metta's tests
-    integration/         Joint acceptance tests
-  docs/                  Team workflow, scope, risk spec and testing guide
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/setup.ps1
+powershell -ExecutionPolicy Bypass -File scripts/run.ps1
 ```
 
-## Root files — Sam maintains these after team agreement
+Open http://127.0.0.1:8000. The virtual environment is already installed in this workspace. Other team members should run setup first. Stop the server with Ctrl+C.
 
-| File | What Sam should write |
-| --- | --- |
-| `requirements.txt` | Agreed Python runtime dependencies and version constraints. |
-| `requirements-dev.txt` | Agreed test/development dependencies. |
-| `.env.example` | Environment-variable names with dummy values; never real secrets. |
-| `.gitignore` | Basic exclusions are supplied for environments, caches, databases, secrets and build output. Extend as needed. |
-| `pyproject.toml` | Agreed Python/test/tool configuration. |
+## Features implemented
 
-The existing `broke.txt` is your original file and is untouched; it is not part of the scaffold.
+- Responsive dashboard with synthetic weather for ten cities and 28 sample days.
+- Fictional profile editor with age, conditions, occupation, availability and activity length.
+- Explainable illustrative risk scoring, selectable hourly chart and relative outdoor-window rankings.
+- In-app alerts with dismiss/restore; profile deletion and reset.
+- Anonymous per-tab demo sessions with SQLite persistence and 24-hour expiry.
+- Shared schemas, fixed frontend mock fixtures and backend/integration tests.
 
-## How to begin
+The data is synthetic, and the rules are demonstration logic, not a clinically validated model. Use fictional profile details only. Profile storage is not encrypted. No live weather, real accounts, push/SMS, route maps, communicable-disease predictions or trained ML models are implemented.
 
-1. Everyone reads their folder README.
-2. Agree on MVP scope in `docs/SCOPE.md`.
-3. Agree on field names, units and endpoint shapes in `shared/API_CONTRACT.md` before coding.
-4. Sam builds the API/data layer, Metta builds the calculation layer, and Shreshta builds the UI against agreed mocks.
-5. Integrate and test regularly using the shared contract.
+## Team ownership
 
-Use one shared repository with separate feature branches. Each teammate keeps a complete copy but edits their own files. Do not split the repository into three incomplete projects. Read `docs/TEAM_WORKFLOW.md` for coordination details.
+| Owner | Folder | Implemented files |
+| --- | --- | --- |
+| Sam / BE1 | backend/be1_sam/ | app.py, repository.py, storage.py |
+| Metta / BE2 | backend/be2_metta/ | risk.py, scheduler.py, alerts.py, service.py |
+| Shreshta | frontend_shreshta/ | index.html, styles, js/app.js, api.js, dashboard.js, profile.js, format.js, mock transport |
 
-The populated non-document files are the original synthetic CSVs under `data/synthetic/`, `.gitignore`, and your pre-existing local file. Empty JSON/YAML files are placeholders and must be populated before parsing. Setup/run scripts do nothing until Sam writes them.
+Other previously created code files remain empty future-work placeholders. The original folder READMEs describe the broader planned division of work; see the implementation status note in each folder. The work-allocation PDF remains a planning document.
+
+## Frontend-only development
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/frontend.ps1
+```
+
+Open http://127.0.0.1:5173/?mock=1. Mock weather and risk values stay fixed; use the integrated backend to test recalculation. Serve over HTTP, not file://.
+
+## Checks and contracts
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/check.ps1
+```
+
+Generated contracts: shared/openapi.json and shared/dashboard.schema.json. After agreed changes, regenerate with `.venv/Scripts/python.exe scripts/export_contracts.py`. The API serves /openapi.json without external documentation/CDN dependencies.
+
+All source CSVs remain unchanged. Weather timestamps use Asia/Kolkata. The current risk calculation is new demo logic, not a reproduction of the original risk-training labels. Its exact formula is documented in docs/RISK_MODEL.md.

@@ -1,3 +1,11 @@
+# Current implementation status
+
+Implemented: the dashboard, profile editor, chart, alerts and time-window views. A full routine editor, real login, translations and map routing remain future work.
+
+The original planning guide below remains for future team work. References below to empty files describe the initial scaffold.
+
+---
+
 # Shreshta — Frontend
 
 **Owner: Shreshta.** You build the webpage in this folder. All code files are empty on purpose.

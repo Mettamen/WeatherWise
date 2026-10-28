@@ -1,0 +1,523 @@
+{
+  "$defs": {
+    "Alert": {
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "title": {
+          "title": "Title",
+          "type": "string"
+        },
+        "message": {
+          "title": "Message",
+          "type": "string"
+        },
+        "severity": {
+          "title": "Severity",
+          "type": "string"
+        },
+        "window_start": {
+          "title": "Window Start",
+          "type": "string"
+        },
+        "window_end": {
+          "title": "Window End",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "message",
+        "severity",
+        "window_start",
+        "window_end"
+      ],
+      "title": "Alert",
+      "type": "object"
+    },
+    "Location": {
+      "properties": {
+        "location_id": {
+          "title": "Location Id",
+          "type": "string"
+        },
+        "city": {
+          "title": "City",
+          "type": "string"
+        },
+        "state": {
+          "title": "State",
+          "type": "string"
+        },
+        "latitude": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Latitude"
+        },
+        "longitude": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Longitude"
+        }
+      },
+      "required": [
+        "location_id",
+        "city",
+        "state"
+      ],
+      "title": "Location",
+      "type": "object"
+    },
+    "Profile": {
+      "additionalProperties": false,
+      "properties": {
+        "display_name": {
+          "default": "Alex",
+          "maxLength": 40,
+          "minLength": 1,
+          "title": "Display Name",
+          "type": "string"
+        },
+        "age": {
+          "default": 35,
+          "maximum": 100,
+          "minimum": 18,
+          "title": "Age",
+          "type": "integer"
+        },
+        "home_location_id": {
+          "default": "LOC01",
+          "title": "Home Location Id",
+          "type": "string"
+        },
+        "occupation_id": {
+          "default": "O08",
+          "title": "Occupation Id",
+          "type": "string"
+        },
+        "condition_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 15,
+          "title": "Condition Ids",
+          "type": "array"
+        },
+        "infectious_condition_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 20,
+          "title": "Infectious Condition Ids",
+          "type": "array"
+        },
+        "allergy_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 25,
+          "title": "Allergy Ids",
+          "type": "array"
+        },
+        "other_allergy": {
+          "default": "",
+          "maxLength": 120,
+          "title": "Other Allergy",
+          "type": "string"
+        },
+        "baseline": {
+          "default": "standard",
+          "enum": [
+            "standard",
+            "respiratory",
+            "cardiovascular"
+          ],
+          "title": "Baseline",
+          "type": "string"
+        },
+        "available_from": {
+          "default": 6,
+          "maximum": 23,
+          "minimum": 0,
+          "title": "Available From",
+          "type": "integer"
+        },
+        "available_until": {
+          "default": 20,
+          "maximum": 24,
+          "minimum": 1,
+          "title": "Available Until",
+          "type": "integer"
+        },
+        "activity_duration_hours": {
+          "default": 1,
+          "maximum": 4,
+          "minimum": 1,
+          "title": "Activity Duration Hours",
+          "type": "integer"
+        }
+      },
+      "title": "Profile",
+      "type": "object"
+    },
+    "RiskResult": {
+      "properties": {
+        "score": {
+          "title": "Score",
+          "type": "number"
+        },
+        "level": {
+          "enum": [
+            "Low",
+            "Moderate",
+            "High",
+            "Severe"
+          ],
+          "title": "Level",
+          "type": "string"
+        },
+        "dominant_hazard": {
+          "enum": [
+            "none",
+            "heat",
+            "rain",
+            "air_quality",
+            "uv"
+          ],
+          "title": "Dominant Hazard",
+          "type": "string"
+        },
+        "reasons": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Reasons",
+          "type": "array"
+        },
+        "advice": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Advice",
+          "type": "array"
+        }
+      },
+      "required": [
+        "score",
+        "level",
+        "dominant_hazard",
+        "reasons",
+        "advice"
+      ],
+      "title": "RiskResult",
+      "type": "object"
+    },
+    "ScoredHour": {
+      "properties": {
+        "weather": {
+          "$ref": "#/$defs/WeatherHour"
+        },
+        "risk": {
+          "$ref": "#/$defs/RiskResult"
+        }
+      },
+      "required": [
+        "weather",
+        "risk"
+      ],
+      "title": "ScoredHour",
+      "type": "object"
+    },
+    "TimeWindow": {
+      "properties": {
+        "start": {
+          "title": "Start",
+          "type": "string"
+        },
+        "end": {
+          "title": "End",
+          "type": "string"
+        },
+        "average_score": {
+          "title": "Average Score",
+          "type": "number"
+        },
+        "level": {
+          "title": "Level",
+          "type": "string"
+        },
+        "explanation": {
+          "title": "Explanation",
+          "type": "string"
+        }
+      },
+      "required": [
+        "start",
+        "end",
+        "average_score",
+        "level",
+        "explanation"
+      ],
+      "title": "TimeWindow",
+      "type": "object"
+    },
+    "WeatherHour": {
+      "properties": {
+        "timestamp": {
+          "title": "Timestamp",
+          "type": "string"
+        },
+        "temperature_c": {
+          "title": "Temperature C",
+          "type": "number"
+        },
+        "relative_humidity_pct": {
+          "title": "Relative Humidity Pct",
+          "type": "number"
+        },
+        "heat_index_c": {
+          "title": "Heat Index C",
+          "type": "number"
+        },
+        "rainfall_mm_hr": {
+          "title": "Rainfall Mm Hr",
+          "type": "number"
+        },
+        "aqi": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Aqi"
+        },
+        "uv_index": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Uv Index"
+        },
+        "wind_kmh": {
+          "title": "Wind Kmh",
+          "type": "number"
+        },
+        "pm2_5_ugm3": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Pm2 5 Ugm3"
+        },
+        "weather_code": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Weather Code"
+        },
+        "cloud_cover": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Cloud Cover"
+        },
+        "is_day": {
+          "default": true,
+          "title": "Is Day",
+          "type": "boolean"
+        },
+        "apparent_temperature_c": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Apparent Temperature C"
+        }
+      },
+      "required": [
+        "timestamp",
+        "temperature_c",
+        "relative_humidity_pct",
+        "heat_index_c",
+        "rainfall_mm_hr",
+        "wind_kmh"
+      ],
+      "title": "WeatherHour",
+      "type": "object"
+    }
+  },
+  "properties": {
+    "schema_version": {
+      "default": "1.1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "mode": {
+      "default": "synthetic_demo",
+      "title": "Mode",
+      "type": "string"
+    },
+    "source": {
+      "default": "Supplied synthetic Tamil Nadu dataset; not a live weather feed",
+      "title": "Source",
+      "type": "string"
+    },
+    "timezone": {
+      "default": "Asia/Kolkata",
+      "title": "Timezone",
+      "type": "string"
+    },
+    "date": {
+      "title": "Date",
+      "type": "string"
+    },
+    "location": {
+      "$ref": "#/$defs/Location"
+    },
+    "profile": {
+      "$ref": "#/$defs/Profile"
+    },
+    "focus_hour": {
+      "$ref": "#/$defs/ScoredHour"
+    },
+    "daily_risk": {
+      "$ref": "#/$defs/RiskResult"
+    },
+    "hours": {
+      "items": {
+        "$ref": "#/$defs/ScoredHour"
+      },
+      "title": "Hours",
+      "type": "array"
+    },
+    "best_windows": {
+      "items": {
+        "$ref": "#/$defs/TimeWindow"
+      },
+      "title": "Best Windows",
+      "type": "array"
+    },
+    "alerts": {
+      "items": {
+        "$ref": "#/$defs/Alert"
+      },
+      "title": "Alerts",
+      "type": "array"
+    },
+    "limitations": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Limitations",
+      "type": "array"
+    },
+    "fetched_at": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Fetched At"
+    },
+    "valid_at": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Valid At"
+    },
+    "sources": {
+      "items": {
+        "additionalProperties": true,
+        "type": "object"
+      },
+      "title": "Sources",
+      "type": "array"
+    },
+    "comparison": {
+      "additionalProperties": true,
+      "title": "Comparison",
+      "type": "object"
+    },
+    "scene": {
+      "default": "sunny",
+      "title": "Scene",
+      "type": "string"
+    },
+    "location_note": {
+      "default": "",
+      "title": "Location Note",
+      "type": "string"
+    }
+  },
+  "required": [
+    "date",
+    "location",
+    "profile",
+    "focus_hour",
+    "daily_risk",
+    "hours",
+    "best_windows",
+    "alerts",
+    "limitations"
+  ],
+  "title": "Dashboard",
+  "type": "object"
+}

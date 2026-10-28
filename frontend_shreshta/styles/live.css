@@ -1,0 +1,54 @@
+/* Shreshta: severity, location, data provenance and animated weather. */
+[data-level="Low"]{--severity:#23764c;--severity-bg:#e9f5ed;--severity-border:#c5e2ce}
+[data-level="Moderate"]{--severity:#925900;--severity-bg:#fff4cf;--severity-border:#ebd389}
+[data-level="High"]{--severity:#bf312e;--severity-bg:#fff0ec;--severity-border:#efb4aa}
+[data-level="Severe"]{--severity:#941e31;--severity-bg:#ffe8ec;--severity-border:#e6a2af}
+.risk-badge[data-level]{color:var(--severity);background:var(--severity-bg);border:1px solid var(--severity-border)}
+.risk-card[data-level]{border-top:4px solid var(--severity);background:linear-gradient(135deg,var(--severity-bg),white 75%)}
+.risk-card[data-level] .risk-score strong,.risk-card[data-level] .risk-heading h2{color:var(--severity)}
+.risk-card[data-level] progress::-webkit-progress-value{background:var(--severity)}
+.risk-card[data-level] progress::-moz-progress-bar{background:var(--severity)}
+.risk-card[data-level] .advice-box{color:var(--severity);background:var(--severity-bg);border-color:var(--severity-border)}
+.alert-item[data-level]{border-left:3px solid var(--severity);padding:12px;margin:8px 0;background:var(--severity-bg);border-radius:8px}
+.alert-item[data-level] .alert-symbol{background:var(--severity);color:#fff}
+.alert-item[data-level] h3{color:var(--severity)}
+.time-window[data-level]{border-color:var(--severity-border);background:var(--severity-bg)}
+.time-window[data-level] .window-score{color:var(--severity)}
+.hour-bar[data-level] .bar-fill{background:var(--severity)}
+.severity-legend{display:flex;flex-wrap:wrap;gap:18px;font-size:11px;margin:13px 0 20px}
+.severity-legend [data-level]{color:var(--severity);font-weight:600}.severity-legend>span:last-child{color:var(--muted);font-size:10px}
+.location-panel{border:1px solid var(--line);background:white;border-radius:12px;padding:16px;margin-bottom:18px}
+.location-controls{display:flex;align-items:flex-end;gap:10px;flex-wrap:wrap}.location-controls label{font-size:11px;display:flex;flex-direction:column;gap:5px;margin-right:auto}.location-controls select{min-width:210px}
+#location-status{font-size:12px;margin-top:12px;color:var(--ink)}.privacy-note{font-size:10px;color:var(--muted);line-height:1.65;margin-top:6px;max-width:880px}
+.scene-caption{font-size:9px;color:var(--muted);margin-top:7px}.source-panel{margin:16px 0}.source-panel h2{font-size:18px}.source-panel>p{font-size:11px;color:var(--muted);margin-top:10px}
+.source-status{font-size:11px;background:#e8f3ec;color:#257047;padding:6px 10px;border-radius:6px}.source-status[data-status="models disagree"],.source-status[data-status="comparison incomplete"]{background:#fff0ce;color:#865205}
+.source-list{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:15px}.source-card{display:flex;flex-direction:column;gap:6px;border:1px solid var(--line);padding:12px;border-radius:9px;font-size:11px}.source-card small{font-size:9px;color:var(--muted)}
+.food-panel,.scenario-panel{margin-top:22px}.food-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:22px}.food-grid h3{font-size:14px}.meal-card,.place-card{border-top:1px solid var(--line);padding:14px 0}.meal-card h3,.place-card a{font-size:12px;font-weight:600}.meal-card p,.place-card p{font-size:11px;color:var(--muted);margin:6px 0}.meal-card small,.place-card small{display:block;font-size:10px;color:var(--muted);line-height:1.6}.distance{float:right;font-size:10px;color:var(--muted)}
+.scenario-controls{display:grid;grid-template-columns:1fr 2fr 1.5fr;align-items:center;gap:20px}.scenario-controls label{font-size:12px}.scenario-controls output{display:block;font-weight:600}.scenario-controls input{accent-color:var(--green);width:100%}.scenario-controls select{display:block;margin-top:5px;width:100%}
+.selection-label{display:block;font-size:11px;font-weight:600;margin:13px 0 6px}#profile-form fieldset>select,#other-allergy{width:100%;padding:10px;border:1px solid var(--line);border-radius:7px;background:white;color:var(--ink)}
+.selected-health{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}.health-chip{background:#eaf2e7;border:1px solid #cadcc3;padding:6px 9px;border-radius:15px;font-size:10px;text-align:left}.health-chip:hover{background:#dfead9}
+.weather-card{transition:background 1s ease;color:#fff}.weather-art{overflow:visible}.weather-card[data-scene="sunny"]{background:linear-gradient(125deg,#215967,#328392)}
+.weather-card[data-scene="partly"]{background:linear-gradient(125deg,#315d76,#7193a1)}
+.weather-card[data-scene="rain"],.weather-card[data-scene="storm"]{background:linear-gradient(135deg,#293f60,#647c94)}
+.weather-card[data-scene="cloudy"],.weather-card[data-scene="fog"]{background:linear-gradient(135deg,#526573,#9babb1)}
+.weather-card[data-scene="wind"]{background:linear-gradient(135deg,#295866,#638d92)}
+.weather-card[data-scene="snow"]{background:linear-gradient(135deg,#667d99,#a5b7c5)}
+.weather-card[data-night="true"],.weather-card[data-scene="night"]{background:linear-gradient(135deg,#18243e,#35415e)}
+.weather-card .card-topline,.weather-card .card-topline>span:last-child,.weather-main p,.weather-metrics span{color:#e1ebf0}.weather-card-footer{background:#142c3b40;color:#e1ebf0}
+.weather-card .sun{animation:sun-breathe 6s ease-in-out infinite}.weather-card .cloud{animation:cloud-drift 8s ease-in-out infinite alternate}.weather-card .cloud-two{animation-delay:-4s}
+.weather-card[data-scene="sunny"] .cloud{opacity:.3}.weather-card[data-scene="rain"] .sun,.weather-card[data-scene="cloudy"] .sun,.weather-card[data-scene="storm"] .sun,.weather-card[data-scene="fog"] .sun{opacity:.15}
+.weather-card[data-night="true"] .sun,.weather-card[data-scene="night"] .sun{background:#eef0d8;box-shadow:inset -18px -7px #35415e;animation:none;width:65px;height:65px}
+.rain-lines,.wind-lines,.stars{display:none;position:absolute;pointer-events:none}
+.weather-card[data-scene="rain"] .rain-lines,.weather-card[data-scene="storm"] .rain-lines{display:block;z-index:4;width:125px;height:82px;top:105px;left:4px;background:repeating-linear-gradient(105deg,transparent 0 13px,#c8e4ff 14px 16px,transparent 17px 30px);mask-image:linear-gradient(transparent,#000 20%,#000 70%,transparent);animation:rain-fall .65s linear infinite;opacity:.8}
+.weather-card[data-scene="wind"] .wind-lines{display:block;z-index:4;width:150px;height:70px;top:75px;left:-10px;border-top:2px solid #e3f0f2;border-bottom:2px solid #e3f0f2;border-radius:50%;animation:wind-flow 2s ease-in-out infinite}
+.weather-card[data-scene="wind"] .wind-lines:after{content:"";position:absolute;top:25px;left:20px;width:130px;border-top:2px solid #e3f0f2;border-radius:50%}
+.weather-card[data-scene="snow"] .rain-lines{display:block;width:130px;height:80px;top:100px;left:0;background:radial-gradient(circle,#fff 2px,transparent 3px) 0 0/22px 25px;animation:rain-fall 3s linear infinite}
+.weather-card[data-night="true"] .stars,.weather-card[data-scene="night"] .stars{display:block;inset:-15px;background:radial-gradient(circle,#fff 1px,transparent 2px) 0 0/40px 35px;opacity:.6}
+.weather-card[data-scene="storm"] .cloud{background:#aab7cc}.weather-card[data-scene="fog"] .weather-art{filter:blur(2px)}
+@keyframes sun-breathe{50%{box-shadow:0 0 0 10px #f8edb517,0 0 0 22px #f8edb509;transform:scale(1.06)}}
+@keyframes cloud-drift{to{transform:translateX(12px)}}
+@keyframes rain-fall{to{background-position:-8px 30px}}
+@keyframes wind-flow{0%{transform:translateX(-12px);opacity:.2}50%{opacity:.9}100%{transform:translateX(15px);opacity:.2}}
+@media(max-width:900px){.source-list{grid-template-columns:1fr}.food-grid{grid-template-columns:1fr;gap:20px}.scenario-controls{grid-template-columns:1fr 2fr}.scenario-controls>label:last-child{grid-column:1/-1}}
+@media(max-width:700px){.location-controls{gap:8px}.location-controls label{width:100%}.location-controls select{width:100%}.location-controls .button{font-size:10px;padding:9px 11px}.severity-legend{gap:12px}.source-panel{padding:17px}.food-panel,.scenario-panel{margin-top:15px}.scenario-controls{gap:12px}}
+@media(prefers-reduced-motion:reduce){.weather-card,.weather-card *{animation:none!important;transition:none!important}}

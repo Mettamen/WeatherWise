@@ -1,0 +1,983 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "WeatherWise demo API",
+    "description": "Local synthetic-data prototype. Anonymous sessions expire after 24 hours. Do not submit real health data.",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/api/v1/health": {
+      "get": {
+        "summary": "Health",
+        "operationId": "health_api_v1_health_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/catalog": {
+      "get": {
+        "summary": "Catalog",
+        "operationId": "catalog_api_v1_catalog_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Catalog"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/sessions": {
+      "post": {
+        "summary": "Session",
+        "operationId": "session_api_v1_sessions_post",
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Session"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/profile": {
+      "get": {
+        "summary": "Profile",
+        "operationId": "profile_api_v1_profile_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Profile"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      },
+      "put": {
+        "summary": "Update Profile",
+        "operationId": "update_profile_api_v1_profile_put",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Profile"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Profile"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/api/v1/session": {
+      "delete": {
+        "summary": "Delete Session",
+        "operationId": "delete_session_api_v1_session_delete",
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/api/v1/dashboard": {
+      "get": {
+        "summary": "Dashboard",
+        "operationId": "dashboard_api_v1_dashboard_get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "2026-05-08",
+              "title": "Date"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dashboard"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/live": {
+      "post": {
+        "summary": "Live",
+        "operationId": "live_api_v1_live_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Coordinates"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dashboard"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/api/v1/food/ideas": {
+      "get": {
+        "summary": "Food Ideas",
+        "operationId": "food_ideas_api_v1_food_ideas_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/api/v1/food/nearby": {
+      "post": {
+        "summary": "Food Nearby",
+        "operationId": "food_nearby_api_v1_food_nearby_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Coordinates"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Alert": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "title": {
+            "type": "string",
+            "title": "Title"
+          },
+          "message": {
+            "type": "string",
+            "title": "Message"
+          },
+          "severity": {
+            "type": "string",
+            "title": "Severity"
+          },
+          "window_start": {
+            "type": "string",
+            "title": "Window Start"
+          },
+          "window_end": {
+            "type": "string",
+            "title": "Window End"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "title",
+          "message",
+          "severity",
+          "window_start",
+          "window_end"
+        ],
+        "title": "Alert"
+      },
+      "Catalog": {
+        "properties": {
+          "locations": {
+            "items": {
+              "$ref": "#/components/schemas/Location"
+            },
+            "type": "array",
+            "title": "Locations"
+          },
+          "conditions": {
+            "items": {
+              "$ref": "#/components/schemas/ReferenceOption"
+            },
+            "type": "array",
+            "title": "Conditions"
+          },
+          "occupations": {
+            "items": {
+              "$ref": "#/components/schemas/ReferenceOption"
+            },
+            "type": "array",
+            "title": "Occupations"
+          },
+          "dates": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Dates"
+          },
+          "infectious_conditions": {
+            "items": {
+              "$ref": "#/components/schemas/ReferenceOption"
+            },
+            "type": "array",
+            "title": "Infectious Conditions"
+          },
+          "allergies": {
+            "items": {
+              "$ref": "#/components/schemas/ReferenceOption"
+            },
+            "type": "array",
+            "title": "Allergies"
+          }
+        },
+        "type": "object",
+        "required": [
+          "locations",
+          "conditions",
+          "occupations",
+          "dates"
+        ],
+        "title": "Catalog"
+      },
+      "Coordinates": {
+        "properties": {
+          "latitude": {
+            "type": "number",
+            "maximum": 90.0,
+            "minimum": -90.0,
+            "title": "Latitude"
+          },
+          "longitude": {
+            "type": "number",
+            "maximum": 180.0,
+            "minimum": -180.0,
+            "title": "Longitude"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "latitude",
+          "longitude"
+        ],
+        "title": "Coordinates"
+      },
+      "Dashboard": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "title": "Schema Version",
+            "default": "1.1"
+          },
+          "mode": {
+            "type": "string",
+            "title": "Mode",
+            "default": "synthetic_demo"
+          },
+          "source": {
+            "type": "string",
+            "title": "Source",
+            "default": "Supplied synthetic Tamil Nadu dataset; not a live weather feed"
+          },
+          "timezone": {
+            "type": "string",
+            "title": "Timezone",
+            "default": "Asia/Kolkata"
+          },
+          "date": {
+            "type": "string",
+            "title": "Date"
+          },
+          "location": {
+            "$ref": "#/components/schemas/Location"
+          },
+          "profile": {
+            "$ref": "#/components/schemas/Profile"
+          },
+          "focus_hour": {
+            "$ref": "#/components/schemas/ScoredHour"
+          },
+          "daily_risk": {
+            "$ref": "#/components/schemas/RiskResult"
+          },
+          "hours": {
+            "items": {
+              "$ref": "#/components/schemas/ScoredHour"
+            },
+            "type": "array",
+            "title": "Hours"
+          },
+          "best_windows": {
+            "items": {
+              "$ref": "#/components/schemas/TimeWindow"
+            },
+            "type": "array",
+            "title": "Best Windows"
+          },
+          "alerts": {
+            "items": {
+              "$ref": "#/components/schemas/Alert"
+            },
+            "type": "array",
+            "title": "Alerts"
+          },
+          "limitations": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Limitations"
+          },
+          "fetched_at": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Fetched At"
+          },
+          "valid_at": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Valid At"
+          },
+          "sources": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Sources"
+          },
+          "comparison": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Comparison"
+          },
+          "scene": {
+            "type": "string",
+            "title": "Scene",
+            "default": "sunny"
+          },
+          "location_note": {
+            "type": "string",
+            "title": "Location Note",
+            "default": ""
+          }
+        },
+        "type": "object",
+        "required": [
+          "date",
+          "location",
+          "profile",
+          "focus_hour",
+          "daily_risk",
+          "hours",
+          "best_windows",
+          "alerts",
+          "limitations"
+        ],
+        "title": "Dashboard"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "Location": {
+        "properties": {
+          "location_id": {
+            "type": "string",
+            "title": "Location Id"
+          },
+          "city": {
+            "type": "string",
+            "title": "City"
+          },
+          "state": {
+            "type": "string",
+            "title": "State"
+          },
+          "latitude": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Latitude"
+          },
+          "longitude": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Longitude"
+          }
+        },
+        "type": "object",
+        "required": [
+          "location_id",
+          "city",
+          "state"
+        ],
+        "title": "Location"
+      },
+      "Profile": {
+        "properties": {
+          "display_name": {
+            "type": "string",
+            "maxLength": 40,
+            "minLength": 1,
+            "title": "Display Name",
+            "default": "Alex"
+          },
+          "age": {
+            "type": "integer",
+            "maximum": 100.0,
+            "minimum": 18.0,
+            "title": "Age",
+            "default": 35
+          },
+          "home_location_id": {
+            "type": "string",
+            "title": "Home Location Id",
+            "default": "LOC01"
+          },
+          "occupation_id": {
+            "type": "string",
+            "title": "Occupation Id",
+            "default": "O08"
+          },
+          "condition_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "maxItems": 15,
+            "title": "Condition Ids"
+          },
+          "infectious_condition_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "maxItems": 20,
+            "title": "Infectious Condition Ids"
+          },
+          "allergy_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "maxItems": 25,
+            "title": "Allergy Ids"
+          },
+          "other_allergy": {
+            "type": "string",
+            "maxLength": 120,
+            "title": "Other Allergy",
+            "default": ""
+          },
+          "baseline": {
+            "type": "string",
+            "enum": [
+              "standard",
+              "respiratory",
+              "cardiovascular"
+            ],
+            "title": "Baseline",
+            "default": "standard"
+          },
+          "available_from": {
+            "type": "integer",
+            "maximum": 23.0,
+            "minimum": 0.0,
+            "title": "Available From",
+            "default": 6
+          },
+          "available_until": {
+            "type": "integer",
+            "maximum": 24.0,
+            "minimum": 1.0,
+            "title": "Available Until",
+            "default": 20
+          },
+          "activity_duration_hours": {
+            "type": "integer",
+            "maximum": 4.0,
+            "minimum": 1.0,
+            "title": "Activity Duration Hours",
+            "default": 1
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "title": "Profile"
+      },
+      "ReferenceOption": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "group": {
+            "type": "string",
+            "title": "Group",
+            "default": "noncommunicable"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "name"
+        ],
+        "title": "ReferenceOption"
+      },
+      "RiskResult": {
+        "properties": {
+          "score": {
+            "type": "number",
+            "title": "Score"
+          },
+          "level": {
+            "type": "string",
+            "enum": [
+              "Low",
+              "Moderate",
+              "High",
+              "Severe"
+            ],
+            "title": "Level"
+          },
+          "dominant_hazard": {
+            "type": "string",
+            "enum": [
+              "none",
+              "heat",
+              "rain",
+              "air_quality",
+              "uv"
+            ],
+            "title": "Dominant Hazard"
+          },
+          "reasons": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Reasons"
+          },
+          "advice": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Advice"
+          }
+        },
+        "type": "object",
+        "required": [
+          "score",
+          "level",
+          "dominant_hazard",
+          "reasons",
+          "advice"
+        ],
+        "title": "RiskResult"
+      },
+      "ScoredHour": {
+        "properties": {
+          "weather": {
+            "$ref": "#/components/schemas/WeatherHour"
+          },
+          "risk": {
+            "$ref": "#/components/schemas/RiskResult"
+          }
+        },
+        "type": "object",
+        "required": [
+          "weather",
+          "risk"
+        ],
+        "title": "ScoredHour"
+      },
+      "Session": {
+        "properties": {
+          "token": {
+            "type": "string",
+            "title": "Token"
+          },
+          "profile": {
+            "$ref": "#/components/schemas/Profile"
+          }
+        },
+        "type": "object",
+        "required": [
+          "token",
+          "profile"
+        ],
+        "title": "Session"
+      },
+      "TimeWindow": {
+        "properties": {
+          "start": {
+            "type": "string",
+            "title": "Start"
+          },
+          "end": {
+            "type": "string",
+            "title": "End"
+          },
+          "average_score": {
+            "type": "number",
+            "title": "Average Score"
+          },
+          "level": {
+            "type": "string",
+            "title": "Level"
+          },
+          "explanation": {
+            "type": "string",
+            "title": "Explanation"
+          }
+        },
+        "type": "object",
+        "required": [
+          "start",
+          "end",
+          "average_score",
+          "level",
+          "explanation"
+        ],
+        "title": "TimeWindow"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "ctx": {
+            "type": "object",
+            "title": "Context"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      },
+      "WeatherHour": {
+        "properties": {
+          "timestamp": {
+            "type": "string",
+            "title": "Timestamp"
+          },
+          "temperature_c": {
+            "type": "number",
+            "title": "Temperature C"
+          },
+          "relative_humidity_pct": {
+            "type": "number",
+            "title": "Relative Humidity Pct"
+          },
+          "heat_index_c": {
+            "type": "number",
+            "title": "Heat Index C"
+          },
+          "rainfall_mm_hr": {
+            "type": "number",
+            "title": "Rainfall Mm Hr"
+          },
+          "aqi": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Aqi"
+          },
+          "uv_index": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Uv Index"
+          },
+          "wind_kmh": {
+            "type": "number",
+            "title": "Wind Kmh"
+          },
+          "pm2_5_ugm3": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Pm2 5 Ugm3"
+          },
+          "weather_code": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Weather Code"
+          },
+          "cloud_cover": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Cloud Cover"
+          },
+          "is_day": {
+            "type": "boolean",
+            "title": "Is Day",
+            "default": true
+          },
+          "apparent_temperature_c": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Apparent Temperature C"
+          }
+        },
+        "type": "object",
+        "required": [
+          "timestamp",
+          "temperature_c",
+          "relative_humidity_pct",
+          "heat_index_c",
+          "rainfall_mm_hr",
+          "wind_kmh"
+        ],
+        "title": "WeatherHour"
+      }
+    },
+    "securitySchemes": {
+      "HTTPBearer": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  }
+}

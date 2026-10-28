@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#123e36">
+  <meta name="description" content="WeatherWise — a personalised climate and health prototype using synthetic Tamil Nadu data.">
+  <title>WeatherWise · Your day, thoughtfully planned</title>
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles/tokens.css">
+  <link rel="stylesheet" href="./styles/layout.css">
+  <link rel="stylesheet" href="./styles/components.css">
+  <link rel="stylesheet" href="./styles/live.css">
+  <script type="module" src="./js/app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to dashboard</a>
+  <aside class="sidebar">
+    <a class="brand" href="./" aria-label="WeatherWise home"><span class="brand-mark">w<span>°</span></span><span>WeatherWise<small>A little foresight. A better day.</small></span></a>
+    <div class="sidebar-label">YOUR EVERYDAY COMPANION</div>
+    <nav aria-label="Main navigation">
+      <button class="nav-item active" data-nav="overview" aria-current="page"><span aria-hidden="true">◫</span> Overview</button>
+      <button class="nav-item" data-nav="forecast"><span aria-hidden="true">☀</span> Hourly outlook</button>
+      <button class="nav-item" data-nav="alerts"><span aria-hidden="true">♧</span> Your alerts <span id="nav-alert-count" class="nav-count">0</span></button>
+      <button class="nav-item" data-nav="profile"><span aria-hidden="true">◎</span> Health profile</button>
+    </nav>
+    <div class="sidebar-note"><div class="leaf" aria-hidden="true">✳</div><h3>Made for your everyday.</h3><p>Understand the weather through the lens of your own routine.</p><span>TAMIL NADU, INDIA</span></div>
+    <div class="sidebar-footer"><span class="status-dot"></span> Local prototype <span>v1.0</span></div>
+  </aside>
+
+  <div class="workspace">
+    <header class="topbar"><div class="breadcrumb">Your space <span>/</span> <strong id="page-label">Overview</strong></div><div class="topbar-right"><span class="demo-pill" id="data-mode-badge">SAMPLE DATA</span><button id="profile-avatar" class="avatar" aria-label="Edit your demo profile">A</button></div></header>
+    <main id="main" tabindex="-1">
+      <div class="page-intro"><div><div class="eyebrow">A CLEARER PICTURE OF YOUR DAY</div><h1 id="greeting">A little planning goes a long way.</h1><p id="intro-subtitle">Personal weather insights, built around you.</p></div><button class="button secondary" id="edit-profile">Edit demo profile <span aria-hidden="true">↗</span></button></div>
+      <div class="demo-notice"><span class="notice-icon" aria-hidden="true">i</span><p><strong id="mode-label">You're exploring a prototype.</strong> <span id="data-notice">Sample weather is synthetic.</span> Profile data stays on this local server, unencrypted; use fictional health details. Guidance is illustrative, not a diagnosis.</p></div>
+      <section class="location-panel" aria-label="Location and weather source">
+        <div class="location-controls"><label>Weather source<select id="weather-mode"><option value="sample">Synthetic sample day</option><option value="live">Live weather for home city</option></select></label><button id="enable-location" class="button primary">Use my location</button><button id="stop-location" class="button secondary" hidden>Stop tracking</button><button id="refresh-weather" class="button secondary">Refresh</button></div>
+        <p id="location-status" role="status">Location is off. Your browser will ask permission when you choose “Use my location”.</p>
+        <p class="privacy-note">Enabling location shares rounded coordinates with Open-Meteo and OpenStreetMap Overpass through this server, for weather and nearby food places. Your health profile is not sent to them. Tracking ends when you stop it or close this page.</p>
+      </section>
+      <div id="error-panel" class="error-panel" role="alert" hidden><p id="error-message"></p><button id="retry" class="button secondary">Try again</button></div>
+      <div id="loading" class="loading" role="status"><span class="spinner"></span> Preparing your weather outlook…</div>
+
+      <div id="dashboard" hidden>
+        <div class="context-bar"><div><span class="location-pin" aria-hidden="true">⌖</span><strong id="city-label"></strong><span class="context-muted"><span id="zone-label">Tamil Nadu · IST</span></span></div><label class="date-label" id="sample-date-label">Sample day <select id="sample-date" aria-label="Choose a synthetic sample date"></select></label></div>
+        <section id="overview" class="hero-grid" aria-label="Your weather and personal risk">
+          <article class="weather-card"><div class="card-topline"><span>THE WEATHER AT A GLANCE</span><span id="weather-time">12:00 IST snapshot</span></div><div class="weather-main"><div><div class="temperature"><span id="temperature">—</span><span>°</span></div><h2 id="weather-description"></h2><p id="feels-like"></p></div><div class="weather-art" aria-hidden="true"><div class="rain-lines"></div><div class="wind-lines"></div><div class="stars"></div><div class="sun-halo"></div><div class="sun"></div><div class="cloud cloud-one"></div><div class="cloud cloud-two"></div></div></div><div class="weather-metrics"><div><span>Humidity</span><strong id="humidity"></strong></div><div><span>Wind</span><strong id="wind"></strong></div><div><span>Air quality</span><strong id="aqi"></strong></div><div><span>Rain / hour</span><strong id="rain"></strong></div></div><div class="weather-card-footer"><span class="status-dot"></span> <span id="weather-source-label">Illustrative conditions · not a live forecast</span></div></article>
+          <article class="risk-card"><div class="card-topline"><span>YOUR PERSONAL OUTLOOK</span><span id="risk-badge" class="risk-badge"></span></div><div class="risk-heading"><div><div class="eyebrow"><span id="risk-period-label">PEAK RISK FOR THIS SAMPLE DAY</span></div><h2 id="risk-title"></h2></div><div class="risk-score"><strong id="risk-score"></strong><span>/ 100</span></div></div><div class="risk-track" aria-hidden="true"><progress id="risk-progress" max="100" value="0"></progress></div><p id="risk-explanation" class="risk-explanation"></p><div class="advice-box"><span aria-hidden="true">↗</span><p id="primary-advice"></p></div><button class="text-button" id="risk-details-toggle" aria-expanded="false" aria-controls="risk-details">Why this score? <span aria-hidden="true">+</span></button><div id="risk-details" hidden></div></article>
+        </section>
+        <p id="scene-description" class="scene-caption"></p>
+        <div class="severity-legend" aria-label="Risk colours"><span data-level="Low">● Low</span><span data-level="Moderate">● Moderate</span><span data-level="High">● High</span><span data-level="Severe">● Severe</span><span>Colour always appears with a text label.</span></div>
+        <section class="panel source-panel" id="source-panel" hidden><div class="section-header"><h2>Weather source check</h2><span id="comparison-status" class="source-status"></span></div><p id="comparison-message"></p><div id="source-list" class="source-list"></div><p id="source-age" class="footnote"></p></section>
+
+        <section id="forecast" class="panel forecast-panel"><div class="section-header"><div><div class="eyebrow">A LITTLE FORESIGHT</div><h2>Your day, hour by hour</h2></div><div class="segmented" role="group" aria-label="Chart metric"><button class="selected" data-metric="temperature" aria-pressed="true">Temperature</button><button data-metric="risk" aria-pressed="false">Personal risk</button></div></div><div id="hour-chart" class="hour-chart" role="group" aria-label="Hourly values; select an hour for details"></div><div class="chart-footer"><span id="hour-detail" role="status"></span><span id="chart-timezone">All times in India Standard Time</span></div></section>
+
+        <div class="lower-grid"><section class="panel windows-panel"><div class="section-header"><div><div class="eyebrow">WORK WITH THE WEATHER</div><h2>Better windows to head out</h2></div><span class="small-icon" aria-hidden="true">◷</span></div><p id="window-caption" class="section-caption"></p><div id="time-windows" class="time-windows"></div><p class="footnote">Lower relative exposure within your availability. No time is guaranteed safe.</p></section>
+        <section id="alerts" class="panel alerts-panel"><div class="section-header"><div><div class="eyebrow">WORTH KEEPING IN MIND</div><h2>Your alerts <span id="alert-count" class="count-badge"></span></h2></div><button class="text-button" id="restore-alerts">Restore dismissed</button></div><div id="alert-list" class="alert-list"></div><p class="footnote">In-app demo alerts only. No push or SMS is sent.</p></section></div>
+
+        <section class="panel scenario-panel"><div class="section-header"><div><div class="eyebrow">EXPLORE A WHAT-IF</div><h2>PM2.5 exposure scenario</h2></div><span id="pm-level" class="risk-badge">Low</span></div><p class="section-caption">Manual scenario only. This does not change the live weather, personal alerts or health assessment.</p><div class="scenario-controls"><label for="pm-slider">PM2.5 <output id="pm-value">15 µg/m³</output></label><input id="pm-slider" type="range" min="0" max="150" step="1" value="15"><label for="patient-baseline">Patient baseline<select id="patient-baseline"><option value="standard">General adult profile</option><option value="respiratory">Respiratory sensitivity</option><option value="cardiovascular">Cardiovascular sensitivity</option></select></label></div><p id="scenario-note" class="footnote"></p><p class="footnote">Illustrative exposure index: concentration / 150 × 100. Bands are demonstration cutoffs, not official AQI categories or a validated stroke-vulnerability score.</p></section>
+        <section class="panel food-panel"><div class="section-header"><div><div class="eyebrow">PLAN A MEAL NEARBY</div><h2>Food ideas &amp; places to ask</h2></div><button class="text-button" id="food-profile">Edit allergies →</button></div><div class="food-grid"><div><h3>Ingredient-based ideas</h3><p id="meal-note" class="section-caption"></p><div id="meal-list"></div></div><div><h3>Nearby food places</h3><p id="nearby-status" class="section-caption"></p><div id="nearby-list"></div></div></div><p class="footnote">Confirm ingredients and cross-contact directly with staff. No venue or dish is certified safe. <a href="https://www.food.gov.uk/print/pdf/node/22196" target="_blank" rel="noopener noreferrer">Food Standards Agency allergy guidance</a> · Places © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap contributors</a>.</p></section>
+        <section class="profile-strip"><span class="profile-strip-icon" aria-hidden="true">◎</span><div><h3>An outlook that's personal to you</h3><p id="profile-summary"></p></div><button class="text-button" id="update-profile">Update profile <span aria-hidden="true">→</span></button></section>
+        <footer class="page-footer"><span>WeatherWise <span class="footer-dot">·</span> Plan with a little more perspective.</span><span>Prototype by Sam, Metta &amp; Shreshta</span></footer>
+      </div>
+    </main>
+  </div>
+
+  <dialog id="profile-dialog" aria-labelledby="profile-title"><form id="profile-form"><div class="dialog-heading"><div><div class="eyebrow">MAKE IT YOUR OWN</div><h2 id="profile-title">Your demo profile</h2></div><button type="button" class="icon-button" id="close-profile" aria-label="Close profile editor">×</button></div><p class="section-caption">Try a fictional adult profile to see how the outlook changes. Saved only to this local prototype.</p><div class="form-grid"><label>Display name<input name="display_name" maxlength="40" required autocomplete="off"></label><label>Age<input name="age" type="number" min="18" max="100" required></label><label>Home city<select name="home_location_id" required></select></label><label>Occupation<select name="occupation_id" required></select></label></div><fieldset><legend>Conditions &amp; allergies</legend><p class="section-caption">Choose from the dropdowns; select multiple items one at a time. This supported list is not exhaustive. Communicable conditions are recorded but do not produce infection-risk predictions.</p><label class="selection-label" for="noncomm-select">Noncommunicable conditions / other health factors</label><select id="noncomm-select"><option value="">Add a condition…</option></select><label class="selection-label" for="infectious-select">Communicable diseases</label><select id="infectious-select"><option value="">Add a communicable condition…</option></select><label class="selection-label" for="allergy-select">Allergies</label><select id="allergy-select"><option value="">Add an allergy…</option></select><div id="selected-health" class="selected-health"></div><label class="selection-label" for="other-allergy">Other allergy (optional)</label><input id="other-allergy" name="other_allergy" maxlength="120" placeholder="Not listed? Add it here"><p class="footnote">Other allergies pause automatic food suggestions because ingredients cannot be reliably checked.</p></fieldset><fieldset><legend>When can you go outdoors?</legend><div class="form-grid three"><label>From<select name="available_from"></select></label><label>Until<select name="available_until"></select></label><label>Activity length<select name="activity_duration_hours"><option value="1">1 hour</option><option value="2">2 hours</option><option value="3">3 hours</option><option value="4">4 hours</option></select></label></div></fieldset><p id="profile-error" class="form-error" role="alert"></p><div class="dialog-actions"><button type="button" id="reset-demo" class="text-button danger">Delete &amp; reset demo</button><button type="submit" class="button primary" id="save-profile">Save profile</button></div></form></dialog>
+  <div id="toast" class="toast" role="status" hidden></div>
+</body>
+</html>

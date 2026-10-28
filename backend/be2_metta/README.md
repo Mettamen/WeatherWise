@@ -1,3 +1,11 @@
+# Current implementation status
+
+Implemented: risk.py, scheduler.py, alerts.py and service.py. Other files remain future-work placeholders; no ML model has been trained.
+
+The original planning guide below remains for future team work. References below to empty files describe the initial scaffold.
+
+---
+
 # Metta — Backend 2 (BE2)
 
 **Owner: Metta.** You write the code in every file in this folder. Files are intentionally empty.

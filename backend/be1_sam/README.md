@@ -1,3 +1,11 @@
+# Current implementation status
+
+Implemented: app.py (API/routes), repository.py (catalog/weather), storage.py (demo profiles/sessions). Other code files remain future-work placeholders. Real account authentication is not implemented.
+
+The original planning guide below remains for future team work. References below to empty files describe the initial scaffold.
+
+---
+
 # Sam — Backend 1 (BE1)
 
 **Owner: Sam.** You write the code in every file in this folder. Files are intentionally empty.

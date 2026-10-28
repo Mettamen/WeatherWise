@@ -1,3 +1,11 @@
+# Current implementation status
+
+Implemented contracts are in contracts.py. Generated openapi.json and dashboard.schema.json describe the working API; openapi.yaml remains an empty planning placeholder.
+
+The original planning guide below remains for future team work. References below to empty files describe the initial scaffold.
+
+---
+
 # Shared interfaces — all three teammates
 
 Sam maintains these files after agreement with Metta and Shreshta. These are the only cross-team integration files; discuss changes before editing them.
